@@ -1,0 +1,17 @@
+{
+ "kPlotVectorField" : false,
+ "kEyePercentTop" : 25,
+ "kEyePercentSide" : 13,
+ "kEyePercentHeight" : 30,
+ "kEyePercentWidth" : 35,
+ "kSmoothFaceImage" : false,
+ "kSmoothFaceFactor" : 0.005,
+ "kFastEyeWidth" : 50,
+ "kWeightBlurSize" : 5,
+ "kEnableWeight" : true,
+ "kWeightDivisor" : 1.0,
+ "kGradientThreshold" : 50.0,
+ "kEnablePostProcess" : true,
+ "kPostProcessThreshold" : 0.97,
+ "kEnableEyeCorner" : false
+}
