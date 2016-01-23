@@ -2,21 +2,17 @@ BIN=./bin/
 SOURCE=./source/
 INC=./include/
 
-OPENCV_LIB = $$(pkg-config --libs opencv)
-OPENCV_INC = $$(pkg-config --cflags opencv)
+OPENCV_LIB = /usr/local/lib
+OPENCV_INC = /usr/local/include
 
 TARGET=$(BIN)eyeTracking
-SRC=$(SOURCE)eyeTracking.cpp $(SOURCE)findEyeCenter.cpp $(SOURCE)helpers.cpp $(SOURCE)jsoncpp.cpp $(SOURCE)settings.cpp $(SOURCE)Target.cpp
-OBJ=SRC = $(BIN)eyeTracking.o $(BIN)findEyeCenter.o $(BIN)helpers.o $(BIN)json.o
+SRC=$(SOURCE)eyeTracking.cpp $(SOURCE)findEyeCenter.cpp $(SOURCE)helpers.cpp $(SOURCE)settings.cpp $(SOURCE)Target.cpp
+OBJ=SRC = $(BIN)eyeTracking.o $(BIN)findEyeCenter.o $(BIN)helpers.o
 
 all : $(TARGET)
 
-$(TARGET) : $(OBJ)
-	g++ $(OBJ) -o $(TARGET)  $(OPENCV_LIB)
-
-$(OBJ) : $(SRC)
-	g++ -I$(INC) $(OPENCV_CFLAGS) -std=c++11 $(SRC) $(OPENCV_CFLAGS)
+$(TARGET) : $(SRC)
+	g++ -I$(INC) -o $(TARGET) $(SRC) `pkg-config --cflags --libs opencv`
 
 clean:
-	rm -f $(OBJ)
 	rm -f $(TARGET)
